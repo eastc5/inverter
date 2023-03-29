@@ -1,0 +1,13 @@
+[Unit]
+Description=web app for serving data from fronious inverter
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/applications/inverter
+ExecStart=/home/pi/applications/inverter/venv/bin/flask run
+Restart=always
+Environment="FLASK_APP=/home/pi/applications/inverter/inverter.py"
+Environment="INVERTER_ADDRESS=ip-address-of-inverter"
+
+[Install]
+WantedBy=multi-user.target
